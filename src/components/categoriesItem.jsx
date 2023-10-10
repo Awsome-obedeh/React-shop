@@ -44,7 +44,7 @@ const Button=styled.button`
     color:#f3f3f;
     font-size:.8rem;
     padding:1rem 2.7rem;
-    border-radius:.3rem
+    border-radius:.3rem 
 `
 
 

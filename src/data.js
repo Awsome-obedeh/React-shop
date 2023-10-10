@@ -27,8 +27,25 @@ export const categories =[
     {
         id:3,
         img:'https://img.freepik.com/free-photo/portrait-young-handsome-male_23-2148884401.jpg?size=626&ext=jpg&ga=GA1.2.343012164.1674420372&semt=ais',
-        title:'BIG MEN WEARS',
+        title:'BIG MEN WEARS'
         
     }
 
+   
 ]
+export const popularProducts=[
+    {
+        id:1,
+    img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    },
+    {
+        id:2,
+    img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    },
+    {
+        id:3,
+    img:' https://img.freepik.com/free-photo/woman-with-shopping-bags-studio-yellow-background-isolated_1303-14294.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    }
+]
+    
+   
