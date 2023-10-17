@@ -4,7 +4,11 @@ import Product from './product'
 
 const Container=styled.div`
   display:flex;
-  flex-direction:row
+  flex-direction:row;
+  flex-wrap:wrap;
+//   gap:.2rem;
+//   justify-content:space-between;
+//   align-item:center
 `
 export default function Products(){
     return <Container>

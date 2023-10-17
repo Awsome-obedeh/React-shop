@@ -44,7 +44,27 @@ export const popularProducts=[
     },
     {
         id:3,
-    img:' https://img.freepik.com/free-photo/woman-with-shopping-bags-studio-yellow-background-isolated_1303-14294.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+        img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    },
+    {
+        id:4,
+        img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'}
+    ,
+    {
+        id:5,
+        img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    },
+    {
+        id:6,
+        img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    },
+    {
+        id:7,
+        img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
+    },
+    {
+        id:8,
+        img:' https://img.freepik.com/free-photo/medium-shot-woman-posing-with-hat_23-2149157714.jpg?size=626&ext=jpg&ga=GA1.1.343012164.1674420372&semt=ais'
     }
 ]
     

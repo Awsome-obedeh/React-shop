@@ -3,8 +3,10 @@ import Annoucements from "./components/Annoucements"
 import Slider from "./components/Slider"
 import Categories from "./components/categories"
 import Products from "./components/products"
+import Newsletter from "./components/newsletter"
+import Footer from "./components/footer"
 
-function App() {
+ function App() {
   
 
   return (
@@ -14,6 +16,8 @@ function App() {
      <Slider/>
      <Categories/>
      <Products/>
+     <Newsletter/>
+     <Footer/>
 
     </>
   )
