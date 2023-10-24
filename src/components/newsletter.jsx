@@ -16,12 +16,12 @@ const Title=styled.h1`
     line-height: 1rem;
     
 
-    `
+`
 const Description=styled.p`
     font-style: 1rem;
     font-weight:.03rem;
 
-    `
+`
 const InputContainer=styled.div`
     width:50%;
     height:2.3rem;
