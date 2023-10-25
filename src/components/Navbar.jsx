@@ -3,6 +3,7 @@ import {useState} from 'react'
 import { FaSistrix } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { BsHeartFill, BsHeart, BsSearch,BsFillCartCheckFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -55,19 +56,20 @@ const SearchContainer = styled.div`
   align-items: center;
   padding: 15px;
   margin-left: 25px;
-  width:5rem
+  width:5rem;
 
 `
 
 export default function Navbar() {
   
   return (
-    <>
+   
+    <> <Link to="products"><li>Products</li></Link>
       <Container>
         <Wrapper>
           <Left>
             <Logo>
-                AwsomeShop
+               
             </Logo>
           </Left>
 

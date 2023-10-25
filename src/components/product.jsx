@@ -16,7 +16,7 @@ align-items:center;
 justify-content:center;
 gap:1rem;
 transition:all .5s ease-in;
-cursor:pointer
+cursor:pointer;
 
 
 `;
@@ -33,7 +33,7 @@ const Container = styled.div`
   position:relative;
   // object-fit: center;
   // obeject-size: contain;
-  &:hover ${Info}{\
+  &:hover ${Info}{
     opacity:1
 
   }
@@ -48,7 +48,7 @@ const Circle = styled.div`
 `;
 const Image = styled.img`
   height: 75%;
-  z-index:2
+  z-index:2;
 `;
 
 
@@ -67,7 +67,7 @@ const Icon=styled.div`
 
     &:hover {
       filter: brightness(0.85);
-      transform:scale(1.1)
+      transform:scale(1.1);
     }
 
 
