@@ -5,7 +5,7 @@ const Container=styled.div`
     flex:1;
     margin:.1rem;
     height:70vh;
-    position:relative
+    position:relative;
 
 
 `
@@ -27,7 +27,7 @@ const Info=styled.div`
     display:flex; 
      flex-direction:column;
     justify-content:center;
-    align-items:center
+    align-items:center;
   
 
 
@@ -41,10 +41,10 @@ const Button=styled.button`
     border:none;
     padding:.8rem;
     background-color:#f1d7cb;
-    color:#f3f3f;
+    color:hotpink;
     font-size:.8rem;
     padding:1rem 2.7rem;
-    border-radius:.3rem 
+    border-radius:.3rem ;
 `
 
 

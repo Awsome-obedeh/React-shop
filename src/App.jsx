@@ -6,6 +6,7 @@ import Products from "./components/products";
 import Newsletter from "./components/newsletter";
 import Footer from "./components/footer";
 import ProductList from "./pages/productlist";
+import Product from "./pages/Products";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           <Products />
           <Newsletter />
           <Footer /> */}
-
+          <Route path='/single'element={<Product/>}></Route>
           <Route path="/" element={<Navbar />}></Route>
           <Route path="/products" element={<ProductList />}>
             products

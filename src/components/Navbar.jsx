@@ -64,7 +64,9 @@ export default function Navbar() {
   
   return (
    
-    <> <Link to="products"><li>Products</li></Link>
+    <> 
+    <Link to="/products"><li>Products</li></Link>
+    <Link to="/single"><li>Single Products</li></Link>
       <Container>
         <Wrapper>
           <Left>

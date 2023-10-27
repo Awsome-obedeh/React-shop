@@ -45,6 +45,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 1rem;
+  cursor:pointer;
 `;
 const SocialContainer = styled.div`
   display: flex;
@@ -71,8 +72,15 @@ const ContactItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+ cursor:pointer;
   margin-bottom: 1rem;
-`;
+  
+`
+const ContactText=styled.p`
+  cursor: pointer;
+
+
+`
 
 const PaymentMethod=styled.div`
 display: flex;
@@ -123,14 +131,17 @@ export default function Footer() {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{ paddingBottom: ".5rem" }} /> everywhere
+          <Room style={{ paddingBottom: ".5rem" }} />
+          <ContactText> everywhere</ContactText>
         </ContactItem>
         <ContactItem>
-          <Phone style={{ paddingBottom: ".5rem" }} /> +234-7010471769
+          <Phone style={{ paddingBottom: ".5rem" }} /> 
+          <ContactText>+234-7010471769</ContactText>
         </ContactItem>
         <ContactItem>
           <Mail style={{ paddingBottom: ".5rem" }} />
-          obedchidera1010@gmail.com
+          <ContactText> obedchidera1010@gmail.com</ContactText>
+         
         </ContactItem>
         <PaymentMethod>
           <FaCcMastercard style={{color:'gold', fontSize:"2rem"}}/>
