@@ -3,6 +3,8 @@ import Annoucements from "../components/Annoucements";
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
 import Newsletter from "../components/newsletter";
+import { Add, Remove } from "@mui/icons-material";
+// import { Button } from "@mui/material";
 
 const Container = styled.div``;
 
@@ -18,7 +20,7 @@ const ImgContainer = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 60vh;
-  object-fit: cover;
+  object-fit: contain;
 `;
 const InfoContainer = styled.div`
   flex: 1;
@@ -37,8 +39,8 @@ const Price = styled.span`
 const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 50%;
-  gap: 1rem;
+  width: 70%;
+  /* gap: 2rem; */
 `;
 const Filter = styled.div`
   display: flex;
@@ -48,8 +50,7 @@ const Filter = styled.div`
 const FilterTitle = styled.p`
   padding-right: 0.5rem;
   font-size: 1rem;
-  font-weight:200;
-
+  font-weight: 200;
 `;
 
 const FilterColor = styled.div`
@@ -61,10 +62,48 @@ const FilterColor = styled.div`
   background-color: ${(props) => props.color};
   cursor: pointer;
 `;
-
-const FilterSize = styled.select``;
+const FilterSizeWrap=styled.div`
+display: flex;`
+const FilterSize = styled.select`
+  padding: 0.3rem;
+`;
 
 const FilterSizeOption = styled.option``;
+const AddContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+`;
+const AmountContainer = styled.div`
+    display: flex;
+    align-items: center; 
+    gap:.5rem;   
+`;
+const Amount = styled.span`
+    font-weight:400;
+    width: 1.5rem;
+    height:1.5rem;
+    border-radius: .5rem;
+    border:1px solid teal;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const Button = styled.button`
+    padding:1rem;
+    border:1px solid teal;
+    background-color: white;
+    cursor:pointer;
+    transition: all 1s ease-in;
+    /* font-weight: 400; */
+
+    &:hover{
+        background-color:teal;
+    }
+`;
 
 export default function Products() {
   return (
@@ -84,7 +123,7 @@ export default function Products() {
             exercitationem. Minus labore, nostrum officia maiores eligendi
             facere. Porro architecto expedita eius eveniet dolore.
           </Desc>
-          <Price>$20</Price>
+          <Price>$ 20</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle> Color</FilterTitle>
@@ -93,16 +132,27 @@ export default function Products() {
               <FilterColor color="gray" />
             </Filter>
 
+            <FilterSizeWrap>
+                 <FilterTitle> Size</FilterTitle>
             <FilterSize>
-              <FilterTitle> Sizeffg</FilterTitle>
-              ghghghh
               <FilterSizeOption>XS</FilterSizeOption>
               <FilterSizeOption>S</FilterSizeOption>
               <FilterSizeOption>M</FilterSizeOption>
               <FilterSizeOption>L</FilterSizeOption>
               <FilterSizeOption>XS</FilterSizeOption>
             </FilterSize>
+            </FilterSizeWrap>
+           
           </FilterContainer>
+
+          <AddContainer>
+            <AmountContainer>
+              <Remove />
+              <Amount>1</Amount>
+              <Add />
+            </AmountContainer>
+            <Button>Add to Cart</Button>
+          </AddContainer>
         </InfoContainer>
       </Wrapper>
 
