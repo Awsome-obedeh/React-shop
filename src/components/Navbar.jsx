@@ -77,7 +77,7 @@ export default function Navbar() {
           <Center>
             <Links><Link to="/login">Login</Link> </Links>
             <Links> <Link to="/register">Sign Up</Link></Links>
-            <BsFillCartCheckFill style={{fontSize:'1.4rem'}} />
+            <Link to='/cart'><BsFillCartCheckFill style={{fontSize:'1.4rem'}} /></Link>
             
                 
           </Center>

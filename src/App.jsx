@@ -9,6 +9,9 @@ import ProductList from "./pages/productlist";
 import Product from "./pages/Products";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
+import Register from "./pages/register";
+import Login from "./pages/login";
+import Cart from "./pages/cart";
 
 function App() {
   return (
@@ -24,14 +27,14 @@ function App() {
           <Products />
           <Newsletter />
           <Footer /> */}
-          <Route path='/single'element={<Product/>}></Route>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/products" element={<ProductList />}>
-            products
-          </Route>
+          <Route path="/single" element={<Product />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/products" element={<ProductList />}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/cart" element={<Cart/>}> </Route>
         </Routes>
       </BrowserRouter>
-    
     </>
   );
 }

@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -33,7 +33,7 @@ const Title = styled.h1`
 `;
 const Form = styled.form`
     display: flex;
-    flex-direction:column;
+    flex-wrap:wrap;
 `;
 const Input = styled.input`
     flex:1;
@@ -44,13 +44,12 @@ const Input = styled.input`
     &:focus{
         outline:none;
     }
-`;
 
+`;
 
 const Agreement = styled.p`
     font-size:1rem; 
     margin:1rem 0;
-    text-align:center;
   
 `;
 
@@ -71,7 +70,7 @@ const Button = styled.button`
         background-color:rgb(128, 209, 209);
         color:black;
     };
-
+   
 `;
 // 
 
@@ -81,23 +80,24 @@ export default function () {
       <Container>
      
         <Wrapper> 
-              <Title>LOGIN INTO ACCOUNT</Title>
+              <Title>CREATE AN ACCOUNT</Title>
           <Form>
-            
+            <Input placeholder="name"></Input>
+            <Input placeholder="last name"></Input>
+            <Input placeholder="username"></Input>
             <Input placeholder="email"></Input>
             <Input placeholder="password"></Input>
-       
+            <Input placeholder="confirm password"></Input>
            
             
-            <Button>login</Button>
+            <Button>Register</Button>
           
-            
-            
+          
           </Form> 
-         <Agreement>
-              forgot password
+          <Agreement>
+              I concent to the processing of my personal data
             </Agreement>
-            <Link to="/register"><p>Don't have an Account ?</p></Link>
+            <Link to="/login">Alredy have an Account?</Link>
         </Wrapper>
       </Container>
     </>
