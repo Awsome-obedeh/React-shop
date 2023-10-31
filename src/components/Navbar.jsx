@@ -37,7 +37,7 @@ const Center = styled.div`
 
 const Links=styled.li`
    font-size:1.4rem;
-   list-style:none
+   list-style:none;
 `
 
 const Right = styled.div`
@@ -65,19 +65,18 @@ export default function Navbar() {
   return (
    
     <> 
-    <Link to="/products"><li>Products</li></Link>
-    <Link to="/single"><li>Single Products</li></Link>
+   
       <Container>
         <Wrapper>
           <Left>
             <Logo>
-               
+               <Link to='/'>AwesomeShop</Link>
             </Logo>
           </Left>
 
           <Center>
-            <Links>Login</Links>
-            <Links>Sign Up</Links>
+            <Links><Link to="/login">Login</Link> </Links>
+            <Links> <Link to="/register">Sign Up</Link></Links>
             <BsFillCartCheckFill style={{fontSize:'1.4rem'}} />
             
                 
