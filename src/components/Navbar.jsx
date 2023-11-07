@@ -14,6 +14,7 @@ import { mobile, tablet } from "../responsive";
 const Container = styled.div`
   height: 60px;
   background-color: teal;
+  width:100%;
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;

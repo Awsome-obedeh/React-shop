@@ -14,8 +14,9 @@ const Container=styled.div`
 const Image=styled.img`
 width:100%;
 height:100%;
+object-fit:cover;
 ${mobile({height:"20vh"})}
-${tablet({height:"70%"})}
+${tablet({minHeight:"50vh" })}
 
 
 
@@ -50,13 +51,17 @@ const Button=styled.button`
     font-size:.5rem;
     padding:1rem 2.7rem;
     border-radius:.3rem ;
+    ${mobile({fontSize:"unset"})}
 `
 
 
 export default function CategoriesItem({item}){
     return <>
         <Container>
-           <Image src={item.img} />
+      
+                 <Image src={item.img} height="20vh"/>
+          
+          
            <Info >
                 <Title>{item.title} </Title>
                 <Button>SHOP NOW</Button>

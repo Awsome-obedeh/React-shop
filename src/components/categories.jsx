@@ -6,8 +6,9 @@ import { tablet,mobile } from "../responsive"
 const Container = styled.div`
     display:flex;
     justify-content:space-between;
-    gap:.6rem
-    ${tablet({flexDirection:"column"})};
+    gap:.6rem;
+    
+    ${tablet({flexDirection:"column", flexWrap:'wrap'})};
     ${mobile({flexDirection:"column"})};
 `
 

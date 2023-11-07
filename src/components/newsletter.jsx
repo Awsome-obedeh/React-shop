@@ -17,6 +17,7 @@ const Title=styled.h1`
     text-transform:uppercase;
     font-size: 3rem;
     line-height: 1rem;
+    ${mobile({fontSize:"1.5rem"})}
 
     
 
@@ -24,6 +25,7 @@ const Title=styled.h1`
 const Description=styled.p`
     font-style: 1rem;
     font-weight:.03rem;
+    ${mobile({textAlign:"center"})}
 
 `
 const InputContainer=styled.div`
@@ -32,6 +34,7 @@ const InputContainer=styled.div`
     background-color:white;
     display:flex;
     justify-content:space-between;
+    ${mobile({width:"80%"})}
 
 `
 const Input=styled.input`

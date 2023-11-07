@@ -9,9 +9,11 @@ import {
 } from "@mui/icons-material";
 import { FaCcMastercard, FaCcVisa, FaPaypal } from "react-icons/fa";
 import styled from "styled-components";
+import {tablet,mobile} from "./../responsive"
 
 const Container = styled.div`
   display: flex;
+  ${mobile({flexDirection:"column",gap:"1.5rem", marginTop:"1rem"})}
 `;
 const Left = styled.div`
   flex: 1;
@@ -23,15 +25,19 @@ const Logo = styled.div`
   font-size: 2.3rem;
   font-weight: bolder;
   margin-top: 0.5rem;
+  ${mobile({fontSize:"1.2rem"})}
 `;
 const Desc = styled.div`
   line-height: 2.5rem;
+  ${mobile({fontSize:".8rem", margin:".2rem 0"})}
 `;
 const Center = styled.div`
+  /* ${tablet({display:"none"})} */
   flex: 1;
 `;
 const Title = styled.h3`
   font-size: 2rem;
+  ${mobile({fontSize:"1.2rem"})}
 `;
 
 const List = styled.ul`
@@ -46,6 +52,7 @@ const ListItem = styled.li`
   width: 50%;
   margin-bottom: 1rem;
   cursor:pointer;
+  ${mobile({fontSize:".5rem"})}
 `;
 const SocialContainer = styled.div`
   display: flex;
@@ -62,6 +69,7 @@ const SocialIcon = styled.div`
   border-radius: 50%;
   color: white;
   background-color: #${(props) => props.color}; /* justify-content:center; */
+  ${mobile({width:"1rem", height:"1rem", padding:".5rem" })}
 `;
 
 const Right = styled.div`
@@ -74,6 +82,7 @@ const ContactItem = styled.div`
   gap: 1.5rem;
  cursor:pointer;
   margin-bottom: 1rem;
+  ${mobile({fontSize:".5rem"})}
   
 `
 const ContactText=styled.p`
@@ -85,6 +94,7 @@ const ContactText=styled.p`
 const PaymentMethod=styled.div`
 display: flex;
 justify-content: center;
+${mobile({alignItems:"center"})}
 gap:1.5rem;
     
 
