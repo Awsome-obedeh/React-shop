@@ -1,4 +1,5 @@
 import  styled from 'styled-components'
+import {tablet,mobile} from "./../responsive"
 
 
 const Container=styled.div`
@@ -13,7 +14,9 @@ const Container=styled.div`
 const Image=styled.img`
 width:100%;
 height:100%;
-object-fit:fill;
+${mobile({height:"20vh"})}
+${tablet({height:"70%"})}
+
 
 
 `
@@ -28,6 +31,7 @@ const Info=styled.div`
      flex-direction:column;
     justify-content:center;
     align-items:center;
+    ${mobile({fontSize:"1rem"})}
   
 
 
@@ -35,14 +39,15 @@ const Info=styled.div`
 const Title =styled.h1`
     color:white;
     margin-bottom:1.2rem;
-    font-size:2.25rem;
+    font-size:1.25rem;
+    text-align:center;
 `
 const Button=styled.button`
     border:none;
     padding:.8rem;
     background-color:#f1d7cb;
-    color:hotpink;
-    font-size:.8rem;
+    color:black;
+    font-size:.5rem;
     padding:1rem 2.7rem;
     border-radius:.3rem ;
 `

@@ -56,13 +56,11 @@ const Product = styled.div`
   justify-content: space-between;
 `;
 
-const Hr=styled.hr`
-    background-color:#eeee;
-    height: 1px;
-    border:none;
-
-
-`
+const Hr = styled.hr`
+  background-color: #eeee;
+  height: 1px;
+  border: none;
+`;
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
@@ -72,7 +70,7 @@ const ImageHolder = styled.div`
   border-top: 1px solid teal;
   border-right: 1px solid teal;
   position: relative;
-  margin-top:.9rem;
+  margin-top: 0.9rem;
 `;
 const Image = styled.img`
   width: 12.5rem;
@@ -93,68 +91,62 @@ const ProductColor = styled.span`
   width: 1.3rem;
   height: 1.3rem;
   border-radius: 50%;
-  background-color:${(props)=>props.color};
+  background-color: ${(props) => props.color};
 `;
 const ProductSize = styled.div``;
 const PriceDetail = styled.div`
-
   flex: 1;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
-
 `;
 
-const ProductAmountContainer=styled.div`
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    gap:.2rem;
-
-`
-const ProductAmount=styled.div`
-    font-size: 1.3rem;
-    /* margin:1rem; */
-`
-const ProductPrice=styled.div``
+const ProductAmountContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+`;
+const ProductAmount = styled.div`
+  font-size: 1.3rem;
+  /* margin:1rem; */
+`;
+const ProductPrice = styled.div``;
 
 const Summary = styled.span`
-border: .3px solid lightblue;
+  border: 0.3px solid lightblue;
   flex: 1;
-  border-radius: .8rem;
-  padding:1.2rem;
-  height:50vh;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  height: 50vh;
   margin-top: 1rem;
 `;
 
-const SummaryTitle=styled.h1`
-font-weight:200;
+const SummaryTitle = styled.h1`
+  font-weight: 200;
+`;
+const SummaryItem = styled.div`
+  margin: 1.4rem 0px; 
+  display: flex;
+  justify-content: space-between;
 
-`
-const SummaryItem=styled.div`
-margin:1.4rem 0px;
-display: flex;
-justify-content: space-between;
-
-/* gap:.1rem */
-
-`
-const SummaryItemText=styled.span`
-    font-weight:${props=>props.type=='total' && "200"};
-    font-size:${(props)=> props.type==="total" && "1.4rem"};
-`
-const SummaryItemPrice=styled.span``
-const SummaryButton=styled.button`
-    width:100%;
-    border:0;
-    background-color:teal;
-    padding:1.5rem .5rem;
-    border-radius:3px;
-    color:white;
-    font-weight:700;
-
-`
+  /* gap:.1rem */
+`;
+const SummaryItemText = styled.span`
+  font-weight: ${(props) => props.type == "total" && "200"};
+  font-size: ${(props) => props.type === "total" && "1.4rem"};
+`;
+const SummaryItemPrice = styled.span``;
+const SummaryButton = styled.button`
+  width: 100%;
+  border: 0;
+  background-color: teal;
+  padding: 1.5rem 0.5rem;
+  border-radius: 3px;
+  color: white;
+  font-weight: 700;
+`;
 
 export default function Cart() {
   return (
@@ -195,16 +187,15 @@ export default function Cart() {
                 </Details>
               </ProductDetail>
               <PriceDetail>
-                    <ProductAmountContainer>
-                        <Add/>
-                            <ProductAmount>2</ProductAmount>
-                        <Remove/>
-                        <ProductPrice>$ 30</ProductPrice>
-
-                    </ProductAmountContainer>
+                <ProductAmountContainer>
+                  <Add />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove />
+                  <ProductPrice>$ 30</ProductPrice>
+                </ProductAmountContainer>
               </PriceDetail>
             </Product>
-            <Hr/>
+            <Hr />
             <Product>
               <ProductDetail>
                 <ImageHolder>
@@ -224,13 +215,12 @@ export default function Cart() {
                 </Details>
               </ProductDetail>
               <PriceDetail>
-                    <ProductAmountContainer>
-                        <Add/>
-                            <ProductAmount>2</ProductAmount>
-                        <Remove/>
-                        <ProductPrice>$ 30</ProductPrice>
-
-                    </ProductAmountContainer>
+                <ProductAmountContainer>
+                  <Add />
+                  <ProductAmount>2</ProductAmount>
+                  <Remove />
+                  <ProductPrice>$ 30</ProductPrice>
+                </ProductAmountContainer>
               </PriceDetail>
             </Product>
           </Info>
@@ -238,23 +228,23 @@ export default function Cart() {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
 
             <SummaryItem>
-                <SummaryItemText>Sub Total </SummaryItemText>
-                <SummaryItemPrice>$ 70 </SummaryItemPrice>  
+              <SummaryItemText>Sub Total </SummaryItemText>
+              <SummaryItemPrice>$ 70 </SummaryItemPrice>
             </SummaryItem>
 
             <SummaryItem>
-                <SummaryItemText>Estimated Shipping </SummaryItemText>
-                <SummaryItemPrice>$ 6.80 </SummaryItemPrice>  
+              <SummaryItemText>Estimated Shipping </SummaryItemText>
+              <SummaryItemPrice>$ 6.80 </SummaryItemPrice>
             </SummaryItem>
 
             <SummaryItem>
-                <SummaryItemText>Shipping Discount </SummaryItemText>
-                <SummaryItemPrice>$ 6.80 </SummaryItemPrice>  
+              <SummaryItemText>Shipping Discount </SummaryItemText>
+              <SummaryItemPrice>$ 6.80 </SummaryItemPrice>
             </SummaryItem>
 
             <SummaryItem>
-                <SummaryItemText type="total">Total </SummaryItemText>
-                <SummaryItemPrice>$ 82.16 </SummaryItemPrice>  
+              <SummaryItemText type="total">Total </SummaryItemText>
+              <SummaryItemPrice>$ 82.16 </SummaryItemPrice>
             </SummaryItem>
             <SummaryButton>CheckOut</SummaryButton>
           </Summary>

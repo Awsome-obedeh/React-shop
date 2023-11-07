@@ -2,14 +2,16 @@ import styled from 'styled-components'
 import {useState} from'react'
 import {BsFillArrowRightCircleFill,BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { ArrowBack, ArrowCircleLeft, ArrowLeftOutlined, ArrowRightAltOutlined, ArrowRightOutlined } from '@mui/icons-material';
+import { mobile, tablet } from '../responsive';
 
 const Container=styled.div`
     width:100%;
     height:100vh;
-    dispaly:flex;
+    display:flex;
     // background:coral;
     position:relative;
-
+    ${tablet({display:"none"})};
+    
     overflow:hidden;
 `;
 
@@ -29,7 +31,7 @@ const Arrow =styled.div`
     left:${(props)=> props.direction=='left' && '10px'};
     right:${(props)=> props.direction=='right' && '10px'};
     opacity:.5;
-    z-index:2
+    z-index:2;
 `;
 const Wrapper=styled.div`
     height:100%;
@@ -37,7 +39,7 @@ const Wrapper=styled.div`
 
     display:flex;    
  transform:translateX(${props=> props.slideindex * -100}vw);
- transition:all 2s ease
+ transition:all 2s ease;
 `;
 
 const Slide=styled.div`
@@ -49,17 +51,21 @@ const Slide=styled.div`
     // justify-content:space-between;
     // gap:1 rem;
 
+
    
   
 `;
 
 const ImgContainer=styled.div`
     height:80%;
-    flex:1
+    flex:1;
+    
 `
 
 const Image=styled.img`
    height:80%;
+  
+
 
 `
 const ImgBg=styled.div`
@@ -72,11 +78,12 @@ const ImgBg=styled.div`
 const InfoContainer=styled.div`
     flex:1;
     padding:3rem;
+    
 `
 const Title=styled.h1`
     font-size:4.2rem;
     text-transform:Uppercase;
-    font-family:urbanist    
+    font-family:urbanist ;   
 
 `
 const Desc=styled.p`
@@ -100,11 +107,11 @@ export default function Slider(){
     const [slideIndex, setSlideIndex]=useState(0);
   const clickHandler= (direction)=>{
       if(direction ==='left'){
-        setSlideIndex(slideIndex>0 ? slideIndex-1 : 2)
+        setSlideIndex(slideIndex>0 ? slideIndex-1 : 3)
       }
 
       else{
-        setSlideIndex(slideIndex < 2 ? slideIndex +1: 0)
+        setSlideIndex(slideIndex < 3 ? slideIndex +1: 0 )
       }
   }
     return<>
