@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
 import Newsletter from "../components/newsletter";
 import { Add, Remove } from "@mui/icons-material";
+import { mobile } from "../responsive";
 // import { Button } from "@mui/material";
 
 const Container = styled.div``;
@@ -12,6 +13,7 @@ const Wrapper = styled.div`
   padding: 2.5rem;
   display: flex;
   gap: 0.8rem;
+  ${mobile({flexDirection:"column"})}
 `;
 
 const ImgContainer = styled.div`
@@ -40,6 +42,7 @@ const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;
+  ${mobile({width:"100%", justifyContent:"space-between"})}
   /* gap: 2rem; */
 `;
 const Filter = styled.div`
@@ -64,8 +67,10 @@ const FilterColor = styled.div`
 `;
 const FilterSizeWrap=styled.div`
 display: flex;`
+
 const FilterSize = styled.select`
-  padding: 0.3rem;
+  padding: 0 .5rem;
+
 `;
 
 const FilterSizeOption = styled.option``;
@@ -75,6 +80,7 @@ const AddContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 70%;
+  ${mobile({width:"100%", justifyContent:"space-between"})}
 `;
 const AmountContainer = styled.div`
     display: flex;
@@ -93,9 +99,11 @@ const Amount = styled.span`
     justify-content: center;
 `;
 const Button = styled.button`
-    padding:1rem;
+    padding:.8rem;
     border:1px solid teal;
     background-color: white;
+    border-radius: .2rem;
+    /* margin-left:.5rem; */
     cursor:pointer;
     transition: all 1s ease-in;
     /* font-weight: 400; */

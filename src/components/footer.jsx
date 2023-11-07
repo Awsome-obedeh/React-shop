@@ -13,7 +13,7 @@ import {tablet,mobile} from "./../responsive"
 
 const Container = styled.div`
   display: flex;
-  ${mobile({flexDirection:"column",gap:"1.5rem", marginTop:"1rem"})}
+  ${mobile({flexDirection:"column",gap:"1.5rem", marginTop:"1rem", padding:"1rem"})}
 `;
 const Left = styled.div`
   flex: 1;

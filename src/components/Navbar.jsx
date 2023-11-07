@@ -100,6 +100,9 @@ export default function Navbar() {
                 <BsFillCartCheckFill style={{ fontSize: "1.4rem" }} />
               </Link>
             </Cart>
+            <Link to="/product">
+              p
+            </Link>
           </Center>
 
           <Right>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import {mobile,tablet} from "./../responsive"
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
     width:50%;
     padding:1.2rem;
     background-color: teal;
+    ${mobile({width:"85%"})}
 
 `;
 
@@ -97,7 +99,8 @@ export default function () {
           <Agreement>
               I concent to the processing of my personal data
             </Agreement>
-            <Link to="/login">Alredy have an Account?</Link>
+            <Link to="/login">
+             <p style={{color:"white", textAlign:"center"}}> Alredy have an Account?</p> </Link>
         </Wrapper>
       </Container>
     </>
