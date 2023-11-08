@@ -13,6 +13,7 @@ import {tablet,mobile} from "./../responsive"
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-evenly;
   ${mobile({flexDirection:"column",gap:"1.5rem", marginTop:"1rem", padding:"1rem"})}
 `;
 const Left = styled.div`
@@ -26,10 +27,12 @@ const Logo = styled.div`
   font-weight: bolder;
   margin-top: 0.5rem;
   ${mobile({fontSize:"1.2rem"})}
+  ${tablet({fontSize:"1.2rem"})}
 `;
 const Desc = styled.div`
   line-height: 2.5rem;
   ${mobile({fontSize:".8rem", margin:".2rem 0"})}
+  ${tablet({fontSize:".8rem", margin:".2rem 0"})}
 `;
 const Center = styled.div`
   /* ${tablet({display:"none"})} */
@@ -38,6 +41,7 @@ const Center = styled.div`
 const Title = styled.h3`
   font-size: 2rem;
   ${mobile({fontSize:"1.2rem"})}
+  ${tablet({fontSize:"1.2rem"})}
 `;
 
 const List = styled.ul`
@@ -53,6 +57,7 @@ const ListItem = styled.li`
   margin-bottom: 1rem;
   cursor:pointer;
   ${mobile({fontSize:".5rem"})}
+  ${tablet({fontSize:".5rem"})}
 `;
 const SocialContainer = styled.div`
   display: flex;
@@ -70,10 +75,14 @@ const SocialIcon = styled.div`
   color: white;
   background-color: #${(props) => props.color}; /* justify-content:center; */
   ${mobile({width:"1rem", height:"1rem", padding:".5rem" })}
+  ${tablet({width:"1rem", height:"1rem", padding:".5rem" })}
 `;
 
 const Right = styled.div`
-  /* flex: 1; */
+  flex: 1;
+  display: flex;
+  flex-direction:column;
+  align-self:"end";
 `;
 
 const ContactItem = styled.div`
@@ -82,9 +91,10 @@ const ContactItem = styled.div`
   gap: 1.5rem;
  cursor:pointer;
   margin-bottom: 1rem;
-  ${mobile({fontSize:".5rem"})}
+  ${mobile({fontSize:".5rem"})};
+  ${tablet({fontSize:".5rem"})};
   
-`
+`;
 const ContactText=styled.p`
   cursor: pointer;
 
@@ -93,8 +103,10 @@ const ContactText=styled.p`
 
 const PaymentMethod=styled.div`
 display: flex;
-justify-content: center;
-${mobile({alignItems:"center"})}
+/* justify-content: center; */
+align-items:"center";
+/* ${mobile({alignItems:"center"})}
+${tablet({alignItems:"center"})} */
 gap:1.5rem;
     
 

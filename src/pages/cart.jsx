@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
 import Annoucements from "../components/Annoucements";
 import { Add, Remove } from "@mui/icons-material";
-import { mobile } from "../responsive";
+import { mobile,tablet } from "../responsive";
 
 const Container = styled.div``;
 
@@ -43,13 +43,16 @@ const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
-  margin: 0 0.6rem; ${mobile({display:"none"})};
+  margin: 0 0.6rem; 
+  ${mobile({display:"none"})}
+  ${tablet({display:"none"})}
 `;
 
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   ${(mobile({flexDirection:"column"}))}
+  
 `;
 const Info = styled.div`
   flex: 3;
@@ -59,6 +62,7 @@ const Product = styled.div`
   display: flex;
   justify-content: space-between;
   ${mobile({flexDirection:"column"})}
+  ${tablet({flexDirection:"column"})}
 `;
 
 const Hr = styled.hr`
@@ -69,6 +73,7 @@ const Hr = styled.hr`
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  ${mobile({flexDirection:"column", alignItems:"center"})}
 `;
 const ImageHolder = styled.div`
   border-right: 1px solid teal;
@@ -89,7 +94,8 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  ${mobile({flexDirection:"column"})}
+  ${mobile({gap:"1rem"})}
+
 `;
 const ProductName = styled.span``;
 const ProductId = styled.span``;
@@ -103,9 +109,11 @@ const ProductSize = styled.div``;
 const PriceDetail = styled.div`
   flex: 1;
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  /* flex-direction: column; */
+  align-items: center;
   justify-content: center;
+  ${mobile({display:"block"})}
+  ${tablet({display:"block"})}
 `;
 
 const ProductAmountContainer = styled.div`
@@ -125,7 +133,7 @@ const Summary = styled.span`
   flex: 1;
   border-radius: 0.8rem;
   padding: 1.2rem;
-  height: 50vh;
+  /* height: 50vh; */
   margin-top: 1rem;
 `;
 
