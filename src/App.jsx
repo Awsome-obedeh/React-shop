@@ -12,6 +12,8 @@ import Home from "./pages/home";
 import Register from "./pages/register";
 import Login from "./pages/login";
 import Cart from "./pages/cart";
+import Pay from "./pages/pay";
+import Success from "./pages/sucess";
 
 function App() {
   return (
@@ -34,8 +36,8 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cart" element={<Cart/>}> </Route>
           <Route path="/product" element={<Product/>}></Route>
-          {/* <Route path="/pay" element={<Pay/>}></Route>
-          <Route path="/success" element={<Success/>}></Route> */}
+           <Route path="/pay" element={<Pay/>}></Route>
+          <Route path="/success" element={<Success/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
