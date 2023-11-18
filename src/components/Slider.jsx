@@ -57,13 +57,16 @@ const Slide=styled.div`
 `;
 
 const ImgContainer=styled.div`
-    height:80%;
+    height:400px;
+    width:400px;
     flex:1;
     
 `
 
 const Image=styled.img`
-   height:80%;
+width:100%;
+height:100%;
+  object-position: center;
   
 
 

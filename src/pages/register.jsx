@@ -76,7 +76,7 @@ const Button = styled.button`
 `;
 // 
 
-export default function () {
+export default function Register() {
   return (
     <>
       <Container>

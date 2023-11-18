@@ -34,6 +34,8 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cart" element={<Cart/>}> </Route>
           <Route path="/product" element={<Product/>}></Route>
+          {/* <Route path="/pay" element={<Pay/>}></Route>
+          <Route path="/success" element={<Success/>}></Route> */}
         </Routes>
       </BrowserRouter>
     </>
