@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import StripeCheckout from "react-stripe-checkout"
+import axios from  'axios'
+import { useEffect,useState } from "react"
 
 
 const Container=styled.div`
@@ -22,7 +24,20 @@ const Button=styled.button`
 `
 
 export default function Pay(){
+    const [stripeData, setStripeData]=useState(null)
     const KEY=import.meta.env.VITE_API_KEY
+    const onToken=(token)=>{
+        setStripeData(token)
+        console.log(token);
+
+    }
+
+    // post stripe details function
+    const postPayment=()=>{
+        axios.post('localhost:2000/api/payment',{
+            source:
+        })
+    }
 
     return(
         <Container>
@@ -30,11 +45,13 @@ export default function Pay(){
             <StripeCheckout
                 name="AwsomeShop"
                 billingAddress
-                shippingAddress
-                description="Your Total is 27,000 Ngn"
+                shippingAddress 
+                currency="NGN"
                 amount={270000}
-                // token={onToken}
+                description="total Amount"
+                token={onToken}
                 stripeKey={KEY}
+            
             >
 
             <Button>Pay</Button>
