@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { mobile, tablet } from "../responsive";
 
+
 const Container = styled.div`
   height: 60px;
   background-color: teal;
@@ -36,17 +37,21 @@ const Center = styled.div`
   //   flex: 1;
   display: flex;
   align-items: center;
+  justify-content:space-between;
   gap: 0.8rem;
+  text-decoration: none;
+  font-size: 1.4rem;
 `;
 
 const Cart = styled.div`
-  ${tablet({ display: "none" })}
+  
 `;
 
 const Links = styled.li`
-  font-size: 1.4rem;
+  font-size: inherit;
   list-style: none;
-  ${mobile({ display: "none" })}
+  text-decoration: none;
+  ${tablet({ display: "none" })}
 `;
 
 const Right = styled.div`
@@ -76,33 +81,82 @@ const Hamburger = styled.div`
   ${tablet({ display: "block" })}
 `;
 
+const MobileNav = styled.div`
+display:none;
+ 
+  display: ${(props) => props.mobile == false ? "none" : "block"};
+`
+const MobileItems = styled.div`
+ min-width:90vw;
+  min-height:400px;
+  background-color:teal;
+  box-shadow: 10px 14px 14px 2px rgba(0,0,0,0.5) ; display: flex;
+  flex-direction:column;
+  gap:35px;
+  align-items:center;
+  font-size:20px;
+  justify-content: center;
+  align-self: flex-end;
+
+ 
+  `
+  const MLinks = styled.li`
+  font-size: inherit;
+  list-style: none;
+  text-decoration: none;
+ 
+`;
+
+
+
 export default function Navbar() {
+  const [mobile, setMobile] = useState(false);
+
+  function mobileHandler() {
+    setMobile(prevMobile => !prevMobile)
+    // if (mobile == false) {
+    //   display='none'
+
+    // }
+    // else {
+    //   display='block'
+    // }
+
+  }
   return (
+
     <>
+      {console.log(mobile)}
       <Container>
         <Wrapper>
           <Left>
             <Logo>
-              <Link to="/">AwesomeShop</Link>
+              <Link to="/" style={{ textDecoration: "none", color: 'black' }}>AwesomeShop</Link>
             </Logo>
           </Left>
 
           <Center>
             <Links>
-              <Link to="/login">Login</Link>{" "}
+              <Link to="/login" style={{ textDecoration: "none", color: 'black' }}>Login</Link>{" "}
             </Links>
             <Links>
               {" "}
-              <Link to="/register">Sign Up</Link>
+              <Link to="/register" style={{ textDecoration: "none", color: 'black' }}>Sign Up</Link>
             </Links>
-            <Cart>
-              <Link to="/cart">
-                <BsFillCartCheckFill style={{ fontSize: "1.4rem" }} />
-              </Link>
-            </Cart>
-            <Link to="/product">
+            <Links>
+              <Cart>
+                <Link to="/cart" style={{ textDecoration: "none", color: 'black' }}>
+                  <BsFillCartCheckFill style={{ fontSize: "1.4rem" }} />
+                </Link>
+              </Cart>
+            </Links>
+            
+            <Links>
+            <Link to="/product" style={{ textDecoration: "none", color: 'black' }}>
               p
             </Link>
+            
+            </Links>
           </Center>
 
           <Right>
@@ -111,7 +165,7 @@ export default function Navbar() {
               <BsSearch style={{ color: "gray" }} />
             </SearchContainer>
 
-            <Hamburger>
+            <Hamburger onClick={() => mobileHandler()}>
               <FaHamburger
                 style={{ background: "white", color: "teal", padding: ".3rem" }}
               />
@@ -119,6 +173,31 @@ export default function Navbar() {
           </Right>
         </Wrapper>
       </Container>
+      <MobileNav mobile={mobile}>
+        <MobileItems>
+
+          <MLinks>
+            <Link to="/login" style={{ textDecoration: "none", color: 'black' }}>Login</Link>{" "}
+          </MLinks>
+          <MLinks>
+            {" "}
+            <Link to="/register" style={{ textDecoration: "none", color: 'black' }}>Sign Up</Link>
+          </MLinks>
+
+          <MLinks>
+            <Cart>
+            <Link to="/cart" style={{ textDecoration: "none", color: 'black' }}>
+              <BsFillCartCheckFill style={{ fontSize: "1.4rem" }} />
+            </Link>
+          </Cart>
+          </MLinks>
+          
+          <Link to="/product" style={{ textDecoration: "none", color: 'black' }}>
+            p
+          </Link>
+        </MobileItems>
+
+      </MobileNav >
     </>
   );
 }

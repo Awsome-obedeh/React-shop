@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import StripeCheckout from "react-stripe-checkout"
+import { useNavigate } from "react-router"
 import axios from  'axios'
 import { useEffect,useState } from "react"
 
@@ -24,20 +25,40 @@ const Button=styled.button`
 `
 
 export default function Pay(){
+    const navigate=useNavigate()
     const [stripeData, setStripeData]=useState(null)
     const KEY=import.meta.env.VITE_API_KEY
     const onToken=(token)=>{
         setStripeData(token)
         console.log(token);
+        // got to success page
+        navigate('/success')
 
     }
 
     // post stripe details function
-    const postPayment=()=>{
-        axios.post('localhost:2000/api/payment',{
-            source:
-        })
+    const postPayment=async ()=>{
+        try{
+
+            let res=await  axios.post('http://localhost:2000/api/checkout/payment/',{
+                 tokenId:stripeData.id,
+                 amount:270000
+             })
+             if(res){
+                 console.log('payment successfull');
+             }
+           res=await res.json
+           console.log(res);
+        }
+        catch(err){
+            console.log(err)
+        }
     }
+
+    useEffect(()=>{
+        // call the postPayment when stripeData is set
+        stripeData && postPayment()
+    },[stripeData])
 
     return(
         <Container>
