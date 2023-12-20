@@ -7,7 +7,8 @@ import Newsletter from "./components/newsletter";
 import Footer from "./components/footer";
 import ProductList from "./pages/productlist";
 import Product from "./pages/Products";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, redirect, Navigate } from "react-router-dom";
+
 import Home from "./pages/home";
 import Register from "./pages/register";
 import Login from "./pages/login";
@@ -17,10 +18,14 @@ import Success from "./pages/sucess";
 
 
 function App() {
+  const user=true
+ 
   return (
     <>
       {/* <Link to='/products'><li>Awsome</li></Link> */}
       {/* <Link to='/proucts' ><li>products</li></Link> */}
+   
+     
       <BrowserRouter>
         <Routes>
           {/* <Annoucements />
@@ -32,11 +37,11 @@ function App() {
           <Footer /> */}
           <Route path="/single" element={<Product />}></Route>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/products" element={<ProductList />}></Route>
-          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/products/:category" element={<ProductList />}></Route>
+          <Route path="/login" element={user ? <Navigate to='/'/> : <Login/>}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cart" element={<Cart/>}> </Route>
-          <Route path="/product" element={<Product/>}></Route>
+          <Route path="/product/:id" element={ <Product/>}></Route>
            <Route path="/pay" element={<Pay/>}></Route>
           <Route path="/success" element={<Success/>}></Route>
         </Routes>

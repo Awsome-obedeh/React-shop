@@ -5,6 +5,8 @@ import Footer from "../components/footer";
 import Newsletter from "../components/newsletter";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import {useState,useEffect} from "react"
+import axios from "axios";
 // import { Button } from "@mui/material";
 
 const Container = styled.div``;
@@ -113,7 +115,9 @@ const Button = styled.button`
     }
 `;
 
-export default function Products() {
+export default function Products({sort,filters,cat}) {
+  
+
   return (
     <Container>
       <Annoucements />

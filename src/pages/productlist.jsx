@@ -5,6 +5,8 @@ import Products from "../components/products";
 import Newsletter from "../components/newsletter";
 import Footer from "../components/footer";
 import { tablet, mobile } from "./../responsive";
+import { useLocation } from "react-router";
+import { useState } from "react";
 // import { Select } from "@mui/material";
 
 const Container = styled.div``;
@@ -30,8 +32,29 @@ const Select = styled.select`
   ${mobile({width:"85%"})}
 `;
 const Option = styled.option``;
-
 export default function ProductList() {
+  const location=useLocation()
+
+ 
+  console.log(location)
+ const cat= location.pathname.split('/')[2]
+
+  const [filter,setFilters]=useState({});
+  const [sort, setSort]=useState('newest');
+
+  function filterHandler(e){
+    const value=e.target.value
+    setFilters({
+      ...filter,
+      [e.target.name]:value
+    }
+    )
+  }
+
+    console.log(filter)
+
+   
+  
   return (
     <Container>
       <Annoucements />
@@ -40,8 +63,8 @@ export default function ProductList() {
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products</FilterText>
-          <Select>
-            <Option selected disabled>
+          <Select name="color" onChange={filterHandler}>
+            <Option  disabled>
               Color
             </Option>
             <Option>White</Option>
@@ -52,7 +75,7 @@ export default function ProductList() {
             <Option>Grey</Option>
           </Select>
 
-          <Select>
+          <Select name="size" onChange={filterHandler}>
             <Option selected disabled>
               {" "}
               Size
@@ -68,16 +91,17 @@ export default function ProductList() {
 
         <Filter>
           <FilterText>Sort Products</FilterText>
-          <Select>
-            <Option selected>Newest</Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
+          <Select onChange={(e)=> setSort(e.target.value)}>
+            <Option value="newest">Newest</Option>
+            <Option value="asc">Price (asc)</Option>
+            <Option value="dsc">Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products cat={cat} filter={filter} sort={sort} />
       <Newsletter />
       <Footer />
+      {console.log(sort + cat +filter)}
     </Container>
   );
 }

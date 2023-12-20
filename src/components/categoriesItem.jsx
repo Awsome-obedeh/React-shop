@@ -1,8 +1,9 @@
-import  styled from 'styled-components'
-import {tablet,mobile} from "./../responsive"
+import styled from 'styled-components'
+import { tablet, mobile } from "./../responsive"
+import { Link } from 'react-router-dom'
 
 
-const Container=styled.div`
+const Container = styled.div`
     flex:1;
     margin:.1rem;
     height:70vh;
@@ -11,18 +12,18 @@ const Container=styled.div`
 
 `
 
-const Image=styled.img`
+const Image = styled.img`
 width:100%;
 height:100%;
 object-fit:cover;
-${mobile({height:"20vh"})}
-${tablet({minHeight:"50vh" })}
+${mobile({ height: "20vh" })}
+${tablet({ minHeight: "50vh" })}
 
 
 
 `
 
-const Info=styled.div`
+const Info = styled.div`
     position:absolute;
     top:0;
     left:0;
@@ -32,18 +33,18 @@ const Info=styled.div`
      flex-direction:column;
     justify-content:center;
     align-items:center;
-    ${mobile({fontSize:"1rem"})}
+    ${mobile({ fontSize: "1rem" })}
   
 
 
 `
-const Title =styled.h1`
+const Title = styled.h1`
     color:white;
     margin-bottom:1.2rem;
     font-size:1.25rem;
     text-align:center;
 `
-const Button=styled.button`
+const Button = styled.button`
     border:none;
     padding:.8rem;
     background-color:#f1d7cb;
@@ -51,22 +52,24 @@ const Button=styled.button`
     font-size:.5rem;
     padding:1rem 2.7rem;
     border-radius:.3rem ;
-    ${mobile({fontSize:"unset"})}
+    ${mobile({ fontSize: "unset" })}
 `
 
 
-export default function CategoriesItem({item}){
+export default function CategoriesItem({ item }) {
     return <>
         <Container>
-      
-                 <Image src={item.img} height="20vh"/>
-          
-          
-           <Info >
+
+            <Image src={item.img} height="10vh" />
+
+            <Link to={`products/${item.cat}`}>
+            <Info >
                 <Title>{item.title} </Title>
                 <Button>SHOP NOW</Button>
-           </Info>
-        </Container>
+            </Info>
+        </Link>
+
+    </Container >
 
     </>
 }
