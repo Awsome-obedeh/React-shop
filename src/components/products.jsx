@@ -21,9 +21,11 @@ export default function Products({cat,sort,filter}){
   
     const getData=async ()=>{
       try{
-  
-      const res=  await axios.get(`http://localhost:2000/api/products`);
+        
+        // fetch products from the database if there is category and if there is not
+      const res=  await axios.get(cat ? `http://localhost:2000/api/products?category=male`:"http://localhost:2000/api/products" );
         console.log(res)
+         setProducts(res.data)
     }
   
       catch(err){
@@ -33,6 +35,7 @@ export default function Products({cat,sort,filter}){
     }
     useEffect( ()=>{
      getData();
+    
     }, [cat])
     
     return <Container>
