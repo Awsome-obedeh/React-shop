@@ -23,9 +23,11 @@ export default function Products({cat,sort,filter}){
       try{
         
         // fetch products from the database if there is category and if there is not
-      const res=  await axios.get(cat ? `http://localhost:2000/api/products?category=male`:"http://localhost:2000/api/products" );
-        console.log(res)
+      const res=  await axios.get(cat ? `http://localhost:2000/api/products?category=${cat}`:"http://localhost:2000/api/products" );
+        console.log('data from db ', res)
+    
          setProducts(res.data)
+          console.log('PRODUCTS: ', products);
     }
   
       catch(err){
@@ -36,11 +38,18 @@ export default function Products({cat,sort,filter}){
     useEffect( ()=>{
      getData();
     
+    
     }, [cat])
     
+    useEffect(()=>{
+      cat && setFilteredProducts(products.filter((item)=>Object.entries(filter).every(([key,value])=>
+      item[key].includes(value))))
+    },[cat,filter,products])
+
+    console.log("filtered products", filteredProducts)
     return <Container>
    
-        {popularProducts.map((item)=>(
+        {filteredProducts.map((item)=>(
             <Product item={item} key={item.id }></Product>
         ))}
      
