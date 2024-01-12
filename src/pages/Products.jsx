@@ -5,18 +5,20 @@ import Footer from "../components/footer";
 import Newsletter from "../components/newsletter";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
-import {useState,useEffect} from "react"
+import { useState, useEffect } from "react"
 import axios from "axios";
 import { useLocation } from "react-router";
+import { publicRequest } from "../../requestMethods";
 // import { Button } from "@mui/material";
 
-const Container = styled.div``;
+const Container = styled.div`
+`
 
 const Wrapper = styled.div`
   padding: 2.5rem;
   display: flex;
   gap: 0.8rem;
-  ${mobile({flexDirection:"column"})}
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -45,7 +47,7 @@ const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;
-  ${mobile({width:"100%", justifyContent:"space-between"})}
+  ${mobile({ width: "100%", justifyContent: "space-between" })}
   /* gap: 2rem; */
 `;
 const Filter = styled.div`
@@ -68,7 +70,7 @@ const FilterColor = styled.div`
   background-color: ${(props) => props.color};
   cursor: pointer;
 `;
-const FilterSizeWrap=styled.div`
+const FilterSizeWrap = styled.div`
 display: flex;`
 
 const FilterSize = styled.select`
@@ -83,7 +85,7 @@ const AddContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 70%;
-  ${mobile({width:"100%", justifyContent:"space-between"})}
+  ${mobile({ width: "100%", justifyContent: "space-between" })}
 `;
 const AmountContainer = styled.div`
     display: flex;
@@ -117,9 +119,40 @@ const Button = styled.button`
 `;
 
 export default function Products() {
-  const location=useLocation();
-  const id=location.pathname.split('/')[2];
-  
+  // use useLocation hook to get the id from the url
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+  console.log(id)
+  const [product, setProduct] = useState({})
+  const [productQty, setProductQty] = useState(1)
+
+  const incrementHandler = () => {
+    setProductQty(prevProductQty => prevProductQty + 1)
+  }
+  const decreamentHandler = () => {
+    if(productQty<2){
+      product=1
+    }
+    setProductQty(prevProductQty => prevProductQty - 1)
+  }
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await publicRequest.get(`/products/find/${id}`)
+        setProduct(res.data)
+        console.log(res)
+
+        console.log(product);
+
+      }
+      catch (err) {
+        console.log("error with fecthing productsv" + err)
+      }
+
+    }
+    getProducts()
+  }, [id])
 
   return (
     <Container>
@@ -128,43 +161,46 @@ export default function Products() {
 
       <Wrapper>
         <ImgContainer>
-          <Image src=" https://img.freepik.com/free-photo/medium-shot-cool-woman-posing_23-2149068957.jpg?size=626&ext=jpg&ga=GA1.2.343012164.1674420372&semt=ais" />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Two Piece</Title>
+          <Title>{product.title}</Title>
           <Desc>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque,
-            voluptatum aspernatur? Aperiam eaque culpa mollitia laudantium
-            exercitationem. Minus labore, nostrum officia maiores eligendi
-            facere. Porro architecto expedita eius eveniet dolore.
+            {product.desc}
           </Desc>
-          <Price>$ 20</Price>
+          <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle> Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+              {
+                product.color ? product.color.map(c => (
+
+                  <FilterColor color={c} key={c} />
+                )) :" "
+                }
+
             </Filter>
 
             <FilterSizeWrap>
-                 <FilterTitle> Size</FilterTitle>
-            <FilterSize>
-              <FilterSizeOption>XS</FilterSizeOption>
-              <FilterSizeOption>S</FilterSizeOption>
-              <FilterSizeOption>M</FilterSizeOption>
-              <FilterSizeOption>L</FilterSizeOption>
-              <FilterSizeOption>XS</FilterSizeOption>
-            </FilterSize>
+              <FilterTitle> Size</FilterTitle>
+              <FilterSize>
+                {
+                  product.color ? product.size.map(size => (
+                    <FilterSizeOption key={size}>{size}</FilterSizeOption>
+
+                  )) : ''
+                }
+                
+              </FilterSize>
             </FilterSizeWrap>
-           
+
           </FilterContainer>
 
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={decreamentHandler}/>
+              <Amount>{productQty}</Amount>
+              <Add onClick={incrementHandler} />
             </AmountContainer>
             <Button>Add to Cart</Button>
           </AddContainer>

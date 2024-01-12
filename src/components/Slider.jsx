@@ -37,8 +37,9 @@ const Wrapper=styled.div`
     height:100%;
     width:fit-content;
 
-    display:flex;    
- transform:translateX(${props=> props.slideindex * -100}vw);
+    display:flex;  
+      /*remember to undo  */
+ /* transform:translateX(${props=> props.slideindex * -100}vw); */
  transition:all 2s ease;
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { BsCartFill, BsSearch, BsFillHeartFill } from "react-icons/bs";
 
 
@@ -33,10 +34,10 @@ const Container = styled.div`
   position:relative;
   // object-fit: center;
   // obeject-size: contain;
-  &:hover ${Info}{
+  /* &:hover ${Info}{
     opacity:1
 
-  }
+  } */
 `;
 const Circle = styled.div`
   height: 200px;
@@ -64,12 +65,11 @@ const Icon=styled.div`
   justify-content:center;
   align-items:center; 
   transition:all .5s ease; 
-
-    &:hover {
+/* remember to undo */ 
+     /* &:hover {
       filter: brightness(0.85);
       transform:scale(1.1);
-    }
-
+    } */
 
 
 
@@ -84,9 +84,13 @@ export default function Product({ item }) {
           <Icon>
             <BsCartFill></BsCartFill>
           </Icon>
+
+          <Link to={`/product/${item._id}`}>
           <Icon>
             <BsSearch></BsSearch>
           </Icon>
+          
+          </Link>
           <Icon>
             <BsFillHeartFill></BsFillHeartFill>
           </Icon>

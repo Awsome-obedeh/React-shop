@@ -3,6 +3,7 @@ import { popularProducts } from '../data'
 import Product from './product'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
+import { publicRequest } from '../../requestMethods'
 
 const Container=styled.div`
   display:flex;
@@ -14,7 +15,7 @@ const Container=styled.div`
 `
 export default function Products({cat,sort,filter}){
    
-    console.log(sort+' ' + filter + ' ' +cat)
+    console.log(filter)
 
     const [products,setProducts]=useState([])
     const [filteredProducts,setFilteredProducts]=useState([])
@@ -23,7 +24,7 @@ export default function Products({cat,sort,filter}){
       try{
         
         // fetch products from the database if there is category and if there is not
-      const res=  await axios.get(cat ? `http://localhost:2000/api/products?category=${cat}`:"http://localhost:2000/api/products" );
+      const res=  await publicRequest.get(cat ? `/products?category=${cat}`:"http://localhost:2000/api/products" );
         console.log('data from db ', res)
     
          setProducts(res.data)
@@ -46,12 +47,29 @@ export default function Products({cat,sort,filter}){
       item[key].includes(value))))
     },[cat,filter,products])
 
+    useEffect(()=>{
+      if(sort=="newest"){
+        setFilteredProducts((prev)=>
+        [...prev].sort((a,b)=>a.createdAt - b.createdAt))
+      }
+
+      else if(sort==="asc"){
+        setFilteredProducts((prev)=>
+        [...prev].sort((a,b)=>a.price - b.price))
+      }
+
+      else{
+        setFilteredProducts((prev)=>
+        [...prev].sort((a,b)=>b.createdAt-a.createdAt))
+      }
+    }, [sort])
+
     console.log("filtered products", filteredProducts)
     return <Container>
    
-        {filteredProducts.map((item)=>(
-            <Product item={item} key={item.id }></Product>
-        ))}
+        {cat ? filteredProducts.map((item)=>(
+            <Product item={item} key={item._id }></Product>
+        )) : popularProducts.slice(0,8).map((item)=> <Product item={item} key={item._id }/>)}
      
     </Container>
 

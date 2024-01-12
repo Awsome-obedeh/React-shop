@@ -67,16 +67,16 @@ export default function ProductList() {
             <Option  disabled>
               Color
             </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
-            <Option>Red</Option>
-            <Option>Yellow</Option>
-            <Option>Green</Option>
-            <Option>Grey</Option>
+            <Option>white</Option>
+            <Option>black</Option>
+            <Option>red</Option>
+            <Option>yellow</Option>
+            <Option>green</Option>
+            <Option>grey</Option>
           </Select>
 
           <Select name="size" onChange={filterHandler}>
-            <Option selected disabled>
+            <Option defaultValue disabled>
               {" "}
               Size
             </Option>
@@ -101,7 +101,7 @@ export default function ProductList() {
       <Products cat={cat} filter={filter} sort={sort} />
       <Newsletter />
       <Footer />
-      {console.log(sort + cat +filter)}
+   
     </Container>
   );
 }

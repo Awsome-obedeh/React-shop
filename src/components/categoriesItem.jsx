@@ -63,13 +63,13 @@ export default function CategoriesItem({ item }) {
             <Image src={item.img} height="10vh" />
 
             <Link to={`products/${item.cat}`}>
-            <Info >
-                <Title>{item.title} </Title>
-                <Button>SHOP NOW</Button>
-            </Info>
-        </Link>
+                <Info >
+                    <Title>{item.title} </Title>
+                    <Button>SHOP NOW</Button>
+                </Info>
+            </Link>
 
-    </Container >
+        </Container >
 
     </>
 }
